@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Flags</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Nunito Sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="./assets/script.js" defer></script>
+    <link rel="shortcut icon" href="./assets/imgs/moon_dark.svg" type="image/x-icon">
+</head>
+<body class="body">
+    <header class="site_header">
+        <div class="container">
+            <div class="site_wrapper">
+                <a class="site_wrapper_tittle" href="https://countries-api.vercel.app">
+                    Where in the world?
+                </a>
+                <div class="site_lightmode">
+                    <span class="light_mode"><img src="./assets/imgs/moon_light.svg" alt="img"></span>
+                    <span class="dark_mode"><img src="./assets/imgs/moon_dark.svg" alt="img"></span>
+                    <button class="site_lightmode_button" onclick="OnAdd();">Light mode  </button>
+                    <button class="site_darkmode_button" onclick="OnAdd();">Dark mode </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <form class="form js-form">     
+                    <input class="search__input js-search-inp" type="search" name="countries_search" placeholder="Search for a country…">
+                     <select class="form_select js-country-select" aria-label="select defaul value">
+                        <option disabled selected>Filter by Region</option>
+                        <option value="all">All</option>
+                        <option value="africa">Africa</option>
+                        <option value="america">America</option>
+                        <option value="asia">Asia</option>
+                        <option value="europe">Europe</option>
+                        <option value="antarctic">Antarctic</option>
+                        <option value="oceania">Oceania</option>
+                     </select>
+                </form>
+            </div>
+        </section>
+        
+        <section class="card">
+            <div class="container">
+                <ul class="js-render-list card_list"></ul>
+            </div>
+        </section>
+
+        <template class="js-template">
+            <li class="item card_item">
+              <img class="js-country-img" width="264"/>
+              <div class="wrapper">
+                <h2 class="js-country-name card_tittle"></h2>
+                <p class="card_text"><strong class="card_span">Population: </strong><span class="js-country-population card_text"></span><br/>
+                <strong class="card_span">Region: </strong><span class="js-country-region card_text"></span><br/>
+                <strong class="card_span"> Capital: </strong><span class="js-country-capital card_text"></span> 
+                </p>
+              </div>
+            </li>
+          </template>
+    </main>
+</body>
+</html>
