@@ -122,10 +122,12 @@ a {
 
 .light_mode {
     display: block;
+    transform: translate(1px, .5px);
 }
 
 .dark_mode {
     display: none;
+    transform: translate(1px, .5px);
 }
 
 /* header end */
