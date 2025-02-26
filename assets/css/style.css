@@ -97,7 +97,8 @@ a {
 
 
 .site_lightmode_button {
-    max-width: 95px;
+    padding: 0;
+    max-width: 88px;
     width: 100%;
     font-weight: var(--fw-high);
     line-height: 21.82px;
@@ -107,7 +108,8 @@ a {
 }
 
 .site_darkmode_button {
-    max-width: 95px;
+    padding: 0;
+    max-width: 88px;
     width: 100%;
     font-weight: var(--fw-high);
     line-height: 21.82px;
