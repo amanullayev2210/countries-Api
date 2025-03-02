@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Nunito Sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="./assets/countries.js" defer></script>
+    <link rel="shortcut icon" href="./assets/imgs/moon_dark.svg" type="image/x-icon">
+</head>
+<body class="body">
+    <header class="site_header">
+        <div class="container">
+            <div class="site_wrapper">
+                <a class="site_wrapper_tittle" href="https://countries-c15.vercel.app">
+                    Where in the world?
+                </a>
+                <div class="site_lightmode">
+                    <span class="light_mode"><img src="./assets/imgs/moon_light.svg" alt="img"></span>
+                    <span class="dark_mode"><img src="./assets/imgs/moon_dark.svg" alt="img"></span>
+                    <button class="site_lightmode_button" onclick="OnAdd();">Light mode  </button>
+                    <button class="site_darkmode_button" onclick="OnAdd();">Dark mode </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                 <div class="hero_wrapper">
+                <button class="hero-back_button js-country-back"><i class="fa-solid fa-arrow-left"></i>Back</button>
+                <ul class="hero_items">
+                     <img src="./assets/imgs/loading.gif" style="margin: 0 auto;">
+                </ul>
+                </div>
+            </div>
+        </section>
+        <template class="js-template">
+            <li class="hero_item item">
+                <img class="hero-item_img js-country-img" src="./assets/imgs/flag-belgium.svg" alt="Flag belgium" width="560px"> </li>
+                <li class="hero_item hero_desc item">
+                    <h3 class="hero-desc_tittle js-country-name"></h3>
+                    <div class="hero-desc_wrapper">
+                    <p class="hero-desc_text">
+                        <strong >Native Name:</strong> <span class="hero-desc_span js-nativname"></span>
+                        <br>
+                        <strong >Population:</strong> <span class="hero-desc_span js-population"></span>
+                        <br>
+                        <strong >Region:</strong> <span class="hero-desc_span js-region"></span>
+                        <br>
+                        <strong >Sub Region:</strong> <span class="hero-desc_span js-subregion"></span>
+                        <br>
+                        <strong >Capital:</strong> <span class="hero-desc_span js-capital"></span>
+                    </p>
+                   <p class="hero-desc_text">
+                        <strong >Top Level Domain:</strong> <span class="hero-desc_span js-domain"></span> <br>
+                        <strong >Currencies:</strong> <span class="hero-desc_span js-currencies"></span> <br>
+                        <strong >Languages:</strong> <span class="hero-desc_span js-language"></span>
+                    </p>
+                </div>
+                    <div class="hero-info_wrapper">
+                        <h4 class="hero-info_title">Border Countries:</h4>
+                        <button class="hero-info_button">France</button>
+                        <button class="hero-info_button">Germany</button>
+                        <button class="hero-info_button">Netherlands</button>
+                    </div>
+            </li>
+          </template>
+    </main>
+</body>
+</html>
