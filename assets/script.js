@@ -25,7 +25,8 @@ function renderList(arr, node) {
     templateClone.querySelector(".js-country-name").textContent =item.name.common;
     templateClone.querySelector(".js-country-population").textContent = new Intl.NumberFormat('en-US').format(item.population);
     templateClone.querySelector(".js-country-region").textContent = item.region;
-    templateClone.querySelector(".js-country-capital").textContent =item.capital;
+    templateClone.querySelector(".js-country-capital").textContent =item.capital; 
+    templateClone.querySelector(".item").dataset.id =item.population;
 
     docFrg.appendChild(templateClone);
   });
@@ -39,6 +40,7 @@ async function getData(url) {
     let data = await res.json();
     data = data.slice(0, 248);
     renderList(data, elRenderList);
+    countryAllInfo(data);
   } catch (error) {
     console.error("Xatolik yuz berdi", error.massage);
   }
@@ -96,3 +98,21 @@ function OnAdd() {
           light_mode.style.display = "block";
           data = true;
 }};
+
+// countries all info
+function countryAllInfo(data) {
+  elRenderList.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    if (evt.target.closest(".item")) {
+      let dataId = evt.target.closest(".item").dataset.id;
+
+      let findCountry = data.find((item) => {
+        if (+dataId === item.population) {
+          return item;
+        }
+      });
+      localStorage.setItem("country", JSON.stringify(findCountry));
+      window.location.pathname = "./countries.html";
+    }
+  });
+}
