@@ -3,9 +3,12 @@ const elRenderList = document.querySelector(".js-render-list");
 const elTemplate = document.querySelector(".js-template").content;
 const light_mode = document.querySelector(".light_mode");
 const dark_mode = document.querySelector(".dark_mode");
+const darkmode_button = document.querySelector(".site_darkmode_button");
+const lightmode_button = document.querySelector(".site_lightmode_button");
 const elAllCountryRender = document.querySelector(".hero_items");
 const elAllTemplate = document.querySelector(".js-template").content;
 const data = JSON.parse(localStorage.getItem("country"));
+let mode_data = true
 
 if (!data) window.location.pathname = "./index.html";
 
@@ -42,16 +45,16 @@ function OnAdd() {
       .querySelector(".site_lightmode_button")
       .closest(".body")
       .classList.toggle("js-darkmode");
-      if (data) {
+      if (mode_data) {
           light_mode.style.display = "none";
           lightmode_button.style.display = "none"
           darkmode_button.style.display = "block"
           dark_mode.style.display = "block";
-          data = false;
+          mode_data = false;
         } else {
           dark_mode.style.display = "none";
           lightmode_button.style.display = "block"
           darkmode_button.style.display = "none"
           light_mode.style.display = "block";
-          data = true;
+          mode_data = true;
 }};
