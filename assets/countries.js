@@ -20,7 +20,7 @@ function countyrAllRender(piece, node) {
   allDataClone.querySelector(".js-country-img").alt = piece.flags.alt;
   allDataClone.querySelector(".js-country-name").textContent = piece.name.common;
   allDataClone.querySelector(".js-nativname").textContent =piece.name.nativeName.eng.common;
-  allDataClone.querySelector(".js-population").textContent = piece.population;
+  allDataClone.querySelector(".js-population").textContent = new Intl.NumberFormat('en-US').format(piece.population);
   allDataClone.querySelector(".js-region").textContent = piece.region;
   allDataClone.querySelector(".js-subregion").textContent = piece.subregion;
   allDataClone.querySelector(".js-capital").textContent = piece.capital;
