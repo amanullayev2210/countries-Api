@@ -4,15 +4,15 @@ const elSearch = document.querySelector(".js-search-inp")
 const elSelect = document.querySelector(".js-country-select");
 
 // HTML Other Element
+const Elbody = document.getElementById("body")
 const elRenderList = document.querySelector(".js-render-list");
 const elTemplate = document.querySelector(".js-template").content;
-const light_mode = document.querySelector(".light_mode");
-const dark_mode = document.querySelector(".dark_mode");
-const darkmode_button = document.querySelector(".site_darkmode_button");
-const lightmode_button = document.querySelector(".site_lightmode_button");
+const Elbtn = document.getElementById("js-btn");  
+const ElmodeImg = document.getElementById("js-modeImg");
+const ElmodeText = document.getElementById("js-mode_text")
 
 let COUNTRIES_URL = "https://restcountries.com/v3.1/all";
-let mode_data = true;
+let mode_data = localStorage.getItem("data") === "true";
 
 // Render List function
 function renderList(arr, node) {
@@ -79,25 +79,35 @@ function filterRegion() {
 
 filterRegion();
 
-// Dark mode function
-function OnAdd() {
-    document
-      .querySelector(".site_lightmode_button")
-      .closest(".body")
-      .classList.toggle("js-darkmode");
-      if (mode_data) {
-          light_mode.style.display = "none";
-          lightmode_button.style.display = "none"
-          darkmode_button.style.display = "block"
-          dark_mode.style.display = "block";
-          mode_data = false;
-        } else {
-          dark_mode.style.display = "none";
-          lightmode_button.style.display = "block"
-          darkmode_button.style.display = "none"
-          light_mode.style.display = "block";
-          mode_data = true;
-}};
+// Dark mode
+if (mode_data) {
+  Elbody.classList.add("active");
+  ElmodeImg.src = "./assets/imgs/moon_dark.svg";
+  ElmodeText.textContent = "Light mode";
+} else {
+  Elbody.classList.remove("active");
+  ElmodeImg.src = "./assets/imgs/moon_light.svg";
+  ElmodeText.textContent = "Dark mode";
+}
+
+Elbtn.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  mode_data = !mode_data; 
+
+  if (mode_data) {
+      Elbody.classList.add("active");
+      ElmodeImg.src = "./assets/imgs/moon_dark.svg";
+      ElmodeText.textContent = "Light mode";
+  } else {
+      Elbody.classList.remove("active");
+      ElmodeImg.src = "./assets/imgs/moon_light.svg";
+      ElmodeText.textContent = "Dark mode";
+  }
+
+  localStorage.setItem("data", mode_data); 
+});
+
+
 
 // countries all info
 function countryAllInfo(data) {
