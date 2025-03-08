@@ -10,7 +10,7 @@
     <script src="./assets/script.js" defer></script>
     <link rel="shortcut icon" href="./assets/imgs/moon_dark.svg" type="image/x-icon">
 </head>
-<body class="body">
+<body class="body" id="body">
     <header class="site_header">
         <div class="container">
             <div class="site_wrapper">
@@ -18,10 +18,7 @@
                     Where in the world?
                 </a>
                 <div class="site_lightmode">
-                    <span class="light_mode"><img src="./assets/imgs/moon_light.svg" alt="img"></span>
-                    <span class="dark_mode"><img src="./assets/imgs/moon_dark.svg" alt="img"></span>
-                    <button class="site_lightmode_button" onclick="OnAdd();">Light mode  </button>
-                    <button class="site_darkmode_button" onclick="OnAdd();">Dark mode </button>
+                    <button class="header-info_mode" id="js-btn"><img src="./assets/imgs/moon_light.svg" id="js-modeImg"> <span class="header_infoMode_span" id="js-mode_text">Dark mode</span></button>
                 </div>
             </div>
         </div>
@@ -31,7 +28,7 @@
         <section class="hero">
             <div class="container">
                 <form class="form js-form">     
-                    <input class="search__input js-search-inp" type="search" name="countries_search" placeholder="Search for a country…">
+                    <input class="search__input js-search-inp" type="search" name="countries_search" placeholder="Search for a country…" autocomplete="off">
                      <select class="form_select js-country-select" aria-label="select defaul value">
                         <option disabled selected>Filter by Region</option>
                         <option value="all">All</option>

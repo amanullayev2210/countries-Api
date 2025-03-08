@@ -12,7 +12,7 @@
     <script src="./assets/countries.js" defer></script>
     <link rel="shortcut icon" href="./assets/imgs/moon_dark.svg" type="image/x-icon">
 </head>
-<body class="body">
+<body class="body" id="body">
     <header class="site_header">
         <div class="container">
             <div class="site_wrapper">
@@ -20,10 +20,7 @@
                     Where in the world?
                 </a>
                 <div class="site_lightmode">
-                    <span class="light_mode"><img src="./assets/imgs/moon_light.svg" alt="img"></span>
-                    <span class="dark_mode"><img src="./assets/imgs/moon_dark.svg" alt="img"></span>
-                    <button class="site_lightmode_button" onclick="OnAdd();">Light mode  </button>
-                    <button class="site_darkmode_button" onclick="OnAdd();">Dark mode </button>
+                    <button class="header-info_mode" id="js-btn"><img src="./assets/imgs/moon_light.svg" id="js-modeImg"> <span class="header_infoMode_span" id="js-mode_text">Dark mode</span></button>
                 </div>
             </div>
         </div>
@@ -63,11 +60,16 @@
                         <strong >Languages:</strong> <span class="hero-desc_span js-language"></span>
                     </p>
                 </div>
-                    <div class="hero-info_wrapper">
+                    <div class="hero-info_wrapper" id="js-info_wrapper">
                         <h4 class="hero-info_title">Border Countries:</h4>
-                        <button class="hero-info_button">France</button>
-                        <button class="hero-info_button">Germany</button>
-                        <button class="hero-info_button">Netherlands</button>
+                        <button class="hero-info_button js-border_first"></button>
+                        <button class="hero-info_button js-border_second"></button>
+                        <button class="hero-info_button js-border_third"></button>
+                        <button class="hero-info_button js-border_fourth"></button>
+                        <button class="hero-info_button js-border_fifth"></button>
+                        <button class="hero-info_button js-border_sixth"></button>
+                        <button class="hero-info_button js-border_seventh"></button>
+                        <button class="hero-info_button js-border_eighth"></button>
                     </div>
             </li>
           </template>
