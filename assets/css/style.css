@@ -19,8 +19,8 @@
     --fw-high: 600;
     --fw-max: 800;
 }
-/* #FFFFFF */
-.js-darkmode  {
+
+.active  {
     --bglight_color: #2B3844;
     --white-color2: #202C36;
     --white-color: #2B3844;
@@ -97,39 +97,22 @@ a {
 }
 
 
-.site_lightmode_button {
-    padding: 0;
-    max-width: 88px;
-    width: 100%;
-    font-weight: var(--fw-high);
-    line-height: 21.82px;
-    color: var(--black-color);
+.header-info_mode {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 5px;
     border: none;
     background-color: transparent;
-}
-
-.site_darkmode_button {
-    padding: 0;
-    max-width: 88px;
-    width: 100%;
-    font-weight: var(--fw-high);
-    line-height: 21.82px;
     color: var(--black-color);
-    border: none;
-    background-color: transparent;
-    display: none;
 }
 
 
-.light_mode {
-    display: block;
+.header_infoMode_span {
+    color: var(--black-color);
     transform: translate(1px, .5px);
 }
 
-.dark_mode {
-    display: none;
-    transform: translate(1px, .5px);
-}
 
 /* header end */
 
@@ -278,11 +261,14 @@ a {
 }
 
 .hero_items {
-    padding-block: 80px;
+    padding-top: 80px;
+    padding-bottom: 380px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 40px;
 }
 
 .hero-item_img {
@@ -313,7 +299,6 @@ a {
 .hero-desc_text {
     max-width: 256px;
     width: 100%;
-    white-space: nowrap;
     color: var(--black-color);
 }
 
@@ -326,10 +311,12 @@ a {
 }
 
 .hero-info_wrapper {
-    max-width: 451px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .hero-info_title {
@@ -355,7 +342,6 @@ a {
 
 .hero-info_button:hover  {
     cursor: pointer;
-    transform: translateY(-3px);
 }
 
 
@@ -370,7 +356,18 @@ a {
         gap: 40px;
     }
 
+    .hero_items {
+        padding-bottom: 300px;
+    }
+
 }
+
+@media only screen and (max-width: 1024px) {
+    .hero_items {
+        padding-bottom: 150px;
+    }
+}
+
 
 @media only screen and (max-width: 850px) {
 
@@ -382,6 +379,10 @@ a {
         flex-wrap: wrap;
         justify-content: center;
         gap: 40px;
+    }
+
+    .hero_items {
+        padding-bottom: 120px;
     }
 }
 
@@ -452,14 +453,6 @@ a {
 
     .hero_wrapper {
         padding-block: 40px;
-    }
-
-    .hero-info_wrapper {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: center;
-        column-gap: 15px;
-        row-gap: 10px;
     }
 }
 
