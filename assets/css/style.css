@@ -294,12 +294,14 @@ a {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    column-gap: 20px;
 }
 
 .hero-desc_text {
     max-width: 256px;
     width: 100%;
     color: var(--black-color);
+    white-space: nowrap;
 }
 
 
@@ -399,6 +401,11 @@ a {
 
     .card_list {
         padding-bottom: 0;
+    }
+
+    .hero_items {
+        padding-bottom: 150px;
+        justify-content: center;
     }
   
 }
