@@ -1,13 +1,18 @@
 // HTML Other Element
 const elbody = document.getElementById("body")
 const elRenderList = document.querySelector(".js-render-list");
+const ELInfoInner = document.getElementById("js-info_wrapper");
 const elbtn = document.getElementById("js-btn");  
 const elmodeImg = document.getElementById("js-modeImg");
 const elmodeText = document.getElementById("js-mode_text")
 const elAllCountryRender = document.querySelector(".hero_items");
 const elAllTemplate = document.querySelector(".js-template").content;
 const data = JSON.parse(localStorage.getItem("country"));
+const ErrorImg = document.createElement("img")
+
+
 let mode_data = localStorage.getItem("data") === "true";
+let COUNTRIES_URL = "https://restcountries.com/v3.1/all";
 
 if (!data) window.location.pathname = "./index.html";
 
@@ -20,6 +25,7 @@ function countyrAllRender(piece, node) {
   allDataClone.querySelector(".js-country-img").alt = piece.flags.alt?.trim() || "Unknown";
   allDataClone.querySelector(".js-country-name").textContent = piece.name.common?.trim() || "Unknown";
   allDataClone.querySelector(".js-nativname").textContent = 
+  piece.altSpellings[2] ||
   piece.name.nativeName.eng?.common?.trim() ||
   piece.name.official?.trim() ||
   piece.name.nativeName.uzb?.official?.trim() || 
@@ -57,10 +63,11 @@ function countyrAllRender(piece, node) {
 }
 countyrAllRender(data, elAllCountryRender);
 
+
 document.querySelector(".js-country-back").addEventListener("click", (evt) => {
-  evt.preventDefault();
-  localStorage.removeItem("country");
-  window.location.pathname = "./index.html";
+    evt.preventDefault();
+    localStorage.removeItem("country")
+    window.location.pathname = "./index.html";
 });
 
 
@@ -92,3 +99,33 @@ elbtn.addEventListener("click", (evt) => {
   localStorage.setItem("data", mode_data); 
 });
 
+
+async function getData(url) {
+  try {
+    let res = await fetch(url);
+    let data = await res.json();
+    countyrAllRender(data[1] || data[0], elAllCountryRender);
+  } 
+  catch (error) {
+    ErrorImg.src = "https://miro.medium.com/v2/resize:fit:1400/0*QOZm9X5er1Y0r5-t";
+    elAllCountryRender.style.height = '70vh';
+    ErrorImg.style.marginInline = 'auto';
+    ErrorImg.style.maxWidth = '660px';
+    ErrorImg.style.width = '100%';
+    elAllCountryRender.append(ErrorImg);
+  }
+}
+
+
+// countries border info
+function CountrBordersInfo() {
+  document.addEventListener("click", (event) => {
+      if (event.target.classList.contains("js-borders")) {
+          const btnText = event.target.textContent.trim();
+          let Search_link = COUNTRIES_URL.replace("all", `name/${btnText}`);
+          getData(Search_link);
+      }
+  });
+}
+
+CountrBordersInfo();
