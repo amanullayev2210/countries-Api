@@ -298,7 +298,7 @@ a {
 }
 
 .hero-desc_text {
-    max-width: 256px;
+    max-width: 190px;
     width: 100%;
     color: var(--black-color);
     white-space: nowrap;
