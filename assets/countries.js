@@ -18,7 +18,8 @@ if (!data) window.location.pathname = "./index.html";
 
 
 function countyrAllRender(piece, node) {
-  node.innerHTML = "";
+  try {
+    node.innerHTML = "";
   const docFrgAll = document.createDocumentFragment();
   const allDataClone = elAllTemplate.cloneNode(true);
   allDataClone.querySelector(".js-country-img").src = piece.flags.svg?.trim() || "Unknown";
@@ -60,6 +61,10 @@ function countyrAllRender(piece, node) {
   allDataClone.querySelector(".js-border_eighth").textContent = piece.borders?.[7];
   docFrgAll.appendChild(allDataClone);
   node.appendChild(docFrgAll);
+  } 
+  catch (error) {
+    ErrorImgFn();
+  }
 }
 countyrAllRender(data, elAllCountryRender);
 
@@ -107,13 +112,18 @@ async function getData(url) {
     countyrAllRender(data[1] || data[0], elAllCountryRender);
   } 
   catch (error) {
-    ErrorImg.src = "https://miro.medium.com/v2/resize:fit:1400/0*QOZm9X5er1Y0r5-t";
-    elAllCountryRender.style.height = '70vh';
-    ErrorImg.style.marginInline = 'auto';
-    ErrorImg.style.maxWidth = '660px';
-    ErrorImg.style.width = '100%';
-    elAllCountryRender.append(ErrorImg);
+    ErrorImgFn();
   }
+}
+
+// ErrorImgFn
+function ErrorImgFn () {
+  ErrorImg.src = "https://miro.medium.com/v2/resize:fit:1400/0*QOZm9X5er1Y0r5-t";
+  elAllCountryRender.style.height = '70vh';
+  ErrorImg.style.marginInline = 'auto';
+  ErrorImg.style.maxWidth = '660px';
+  ErrorImg.style.width = '100%';
+  elAllCountryRender.append(ErrorImg);
 }
 
 
