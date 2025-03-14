@@ -8,7 +8,7 @@ const elmodeText = document.getElementById("js-mode_text")
 const elAllCountryRender = document.querySelector(".hero_items");
 const elAllTemplate = document.querySelector(".js-template").content;
 const data = JSON.parse(localStorage.getItem("country"));
-const ErrorImg = document.createElement("img")
+const ErrorImg = document.createElement("img");
 
 
 let mode_data = localStorage.getItem("data") === "true";
@@ -36,8 +36,8 @@ function countyrAllRender(piece, node) {
   allDataClone.querySelector(".js-subregion").textContent = piece.subregion?.trim() || "Unknown";
   allDataClone.querySelector(".js-capital").textContent = piece.capital;
   allDataClone.querySelector(".js-domain").textContent = piece.tld;
-  allDataClone.querySelector(".js-currencies").textContent = piece.fifa;
-  allDataClone.querySelector(".js-language").textContent = piece.languages.eng?.trim() ||
+  allDataClone.querySelector(".js-currencies").textContent = piece.currencies.UZS.name || piece.fifa;
+  allDataClone.querySelector(".js-language").textContent = piece.languages.eng?.trim() || piece.languages?.uzb ||
   piece.languages?.spa || piece.languages?.fra || piece.languages?.deu ||
   piece.languages?.ita || piece.languages?.por || piece.languages?.rus ||
   piece.languages?.zho || piece.languages?.jpn || piece.languages?.kor ||
