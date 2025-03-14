@@ -42,7 +42,7 @@ async function getData(url) {
     renderList(data, elRenderList);
     countryAllInfo(data);
   } catch (error) {
-    console.error("Xatolik yuz berdi", error.massage);
+    ErrorImgFn();
   }
 }
 
@@ -125,4 +125,14 @@ function countryAllInfo(data) {
       window.location.pathname = "./countries.html";
     }
   });
+}
+
+// ErrorImgFn
+function ErrorImgFn () {
+  ErrorImg.src = "https://miro.medium.com/v2/resize:fit:1400/0*QOZm9X5er1Y0r5-t";
+  elAllCountryRender.style.height = '70vh';
+  ErrorImg.style.marginInline = 'auto';
+  ErrorImg.style.maxWidth = '660px';
+  ErrorImg.style.width = '100%';
+  elAllCountryRender.append(ErrorImg);
 }
