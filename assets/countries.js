@@ -36,7 +36,7 @@ function countyrAllRender(piece, node) {
   allDataClone.querySelector(".js-subregion").textContent = piece.subregion?.trim() || "Unknown";
   allDataClone.querySelector(".js-capital").textContent = piece.capital;
   allDataClone.querySelector(".js-domain").textContent = piece.tld;
-  allDataClone.querySelector(".js-currencies").textContent = piece.currencies.UZS.name || piece.fifa;
+  allDataClone.querySelector(".js-currencies").textContent = piece.currencies.UZS?.name || piece.fifa;
   allDataClone.querySelector(".js-language").textContent = piece.languages.eng?.trim() || piece.languages?.uzb ||
   piece.languages?.spa || piece.languages?.fra || piece.languages?.deu ||
   piece.languages?.ita || piece.languages?.por || piece.languages?.rus ||
