@@ -10,9 +10,11 @@ const elTemplate = document.querySelector(".js-template").content;
 const Elbtn = document.getElementById("js-btn");  
 const ElmodeImg = document.getElementById("js-modeImg");
 const ElmodeText = document.getElementById("js-mode_text")
+const ElanimationLoading = document.getElementById("js-loading");
 
 let COUNTRIES_URL = "https://restcountries.com/v3.1/all";
 let mode_data = localStorage.getItem("data") === "true";
+let ErrorImg = document.createElement("img");
 
 // Render List function
 function renderList(arr, node) {
@@ -22,11 +24,11 @@ function renderList(arr, node) {
     const templateClone = elTemplate.cloneNode(true);
     templateClone.querySelector(".js-country-img").src = item.flags.png;
     templateClone.querySelector(".js-country-img").alt = item.flags.alt;
-    templateClone.querySelector(".js-country-name").textContent =item.name.common;
+    templateClone.querySelector(".js-country-name").textContent = item.name.common;
     templateClone.querySelector(".js-country-population").textContent = new Intl.NumberFormat('en-US').format(item.population);
     templateClone.querySelector(".js-country-region").textContent = item.region;
-    templateClone.querySelector(".js-country-capital").textContent =item.capital; 
-    templateClone.querySelector(".item").dataset.id =item.population;
+    templateClone.querySelector(".js-country-capital").textContent = item.capital; 
+    templateClone.querySelector(".item").dataset.id = item.population;
 
     docFrg.appendChild(templateClone);
   });
@@ -37,7 +39,7 @@ function renderList(arr, node) {
 async function getData(url) {
   try {
     let res = await fetch(url);
-    let data = await res.json();
+    // let data = await res.json();
     data = data.slice(0, 248);
     renderList(data, elRenderList);
     countryAllInfo(data);
@@ -129,10 +131,12 @@ function countryAllInfo(data) {
 
 // ErrorImgFn
 function ErrorImgFn () {
-  ErrorImg.src = "https://miro.medium.com/v2/resize:fit:1400/0*QOZm9X5er1Y0r5-t";
-  elAllCountryRender.style.height = '70vh';
-  ErrorImg.style.marginInline = 'auto';
-  ErrorImg.style.maxWidth = '660px';
-  ErrorImg.style.width = '100%';
-  elAllCountryRender.append(ErrorImg);
+     Elbody.style.overflowY = "hidden"
+     ElanimationLoading.style.display = "none";
+     ErrorImg.src = "https://miro.medium.com/v2/resize:fit:1400/0*QOZm9X5er1Y0r5-t";
+     ErrorImg.style.marginInline = 'auto';
+     ErrorImg.style.paddingBottom = "450px";
+     ErrorImg.style.maxWidth = '768px';
+     ErrorImg.style.width = '100%';
+     elRenderList.append(ErrorImg);
 }
