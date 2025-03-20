@@ -39,7 +39,7 @@ function renderList(arr, node) {
 async function getData(url) {
   try {
     let res = await fetch(url);
-    // let data = await res.json();
+    let data = await res.json();
     data = data.slice(0, 248);
     renderList(data, elRenderList);
     countryAllInfo(data);
