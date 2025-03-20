@@ -302,10 +302,10 @@ a {
 }
 
 .hero-desc_text {
-    max-width: 190px;
+    max-width: 232px;
     width: 100%;
     color: var(--black-color);
-    white-space: nowrap;
+    word-break: break-word;
 }
 
 
