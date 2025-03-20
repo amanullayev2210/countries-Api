@@ -183,6 +183,10 @@ a {
     row-gap: 30px;
 }
 
+.card_loading {
+    margin: 0 auto;
+}
+
 
 .card_item {
     max-width: 264px;
