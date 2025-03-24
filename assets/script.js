@@ -11,6 +11,7 @@ const Elbtn = document.getElementById("js-btn");
 const ElmodeImg = document.getElementById("js-modeImg");
 const ElmodeText = document.getElementById("js-mode_text")
 const ElanimationLoading = document.getElementById("js-loading");
+const Elhtml = document.getElementById("html")
 
 let COUNTRIES_URL = "https://restcountries.com/v3.1/all";
 let mode_data = localStorage.getItem("data") === "true";
@@ -85,10 +86,12 @@ filterRegion();
 if (mode_data) {
   Elbody.classList.add("active");
   ElmodeImg.src = "./assets/imgs/moon_dark.svg";
+  Elhtml.style.colorScheme = "dark"
   ElmodeText.textContent = "Light mode";
 } else {
   Elbody.classList.remove("active");
   ElmodeImg.src = "./assets/imgs/moon_light.svg";
+  Elhtml.style.colorScheme = "unset"
   ElmodeText.textContent = "Dark mode";
 }
 
@@ -99,10 +102,12 @@ Elbtn.addEventListener("click", (evt) => {
   if (mode_data) {
       Elbody.classList.add("active");
       ElmodeImg.src = "./assets/imgs/moon_dark.svg";
+      Elhtml.style.colorScheme = "dark"
       ElmodeText.textContent = "Light mode";
   } else {
       Elbody.classList.remove("active");
       ElmodeImg.src = "./assets/imgs/moon_light.svg";
+      Elhtml.style.colorScheme = "unset"
       ElmodeText.textContent = "Dark mode";
   }
 
