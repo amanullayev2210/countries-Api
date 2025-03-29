@@ -30,6 +30,10 @@
     --bg-img: url("/assets/imgs/search.svg");
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     background-color: var(--bglight_color);
@@ -275,6 +279,10 @@ a {
     flex-wrap: wrap;
     column-gap: 20px;
     row-gap: 40px;
+}
+
+.hero-item_img_center {
+    margin-inline: auto;
 }
 
 .hero-item_img {
