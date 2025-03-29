@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Country Flags info</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/countries.js" defer></script>
+    <!-- Aos animation library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <!-- Nunito Sans font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="./assets/countries.js" defer></script>
     <link rel="shortcut icon" href="./assets/imgs/moon_dark.svg" type="image/x-icon">
 </head>
 <body class="body" id="body">
     <header class="site_header">
         <div class="container">
             <div class="site_wrapper">
-                <a class="site_wrapper_tittle" href="https://countries-c15.vercel.app">
+                <a class="site_wrapper_tittle" href="index.html">
                     Where in the world?
                 </a>
                 <div class="site_lightmode">
@@ -30,17 +32,17 @@
         <section class="hero">
             <div class="container">
                  <div class="hero_wrapper">
-                <button class="hero-back_button js-country-back"><i class="fa-solid fa-arrow-left"></i>Back</button>
-                <ul class="hero_items">
-                     <img src="./assets/imgs/loading.gif" style="margin: 0 auto;">
+                <button class="hero-back_button js-country-back" data-aos="zoom-in" data-aos-duration="1500"><i class="fa-solid fa-arrow-left"></i>Back</button>
+                <ul class="hero_items" data-aos="fade-up" data-aos-duration="1500">
+                     <img src="./assets/imgs/loading.gif" class="hero-item_img_center">
                 </ul>
                 </div>
             </div>
         </section>
         <template class="js-template">
-            <li class="hero_item item">
+            <li class="hero_item item" data-aos="fade-right" data-aos-duration="1200">
                 <img class="hero-item_img js-country-img" src="./assets/imgs/flag-belgium.svg" alt="Flag belgium" width="560px"> </li>
-                <li class="hero_item hero_desc item">
+                <li class="hero_item hero_desc item" data-aos="fade-left" data-aos-duration="900">
                     <h3 class="hero-desc_tittle js-country-name"></h3>
                     <div class="hero-desc_wrapper">
                     <p class="hero-desc_text">
@@ -74,5 +76,7 @@
             </li>
           </template>
     </main>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script >AOS.init();</script>
 </body>
 </html>

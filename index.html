@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Country Flags</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/script.js" defer></script>
+    <!-- Aos animation library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <!-- Nunito Sans font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="./assets/script.js" defer></script>
     <link rel="shortcut icon" href="./assets/imgs/moon_dark.svg" type="image/x-icon">
 </head>
 <body class="body" id="body">
     <header class="site_header">
         <div class="container">
             <div class="site_wrapper">
-                <a class="site_wrapper_tittle" href="https://countries-c15.vercel.app">
+                <a class="site_wrapper_tittle" href="index.html">
                     Where in the world?
                 </a>
                 <div class="site_lightmode">
@@ -52,7 +54,7 @@
         </section>
 
         <template class="js-template">
-            <li class="item card_item">
+            <li class="item card_item" data-aos="fade-up" data-aos-duration="1200">
               <img class="js-country-img" width="264"/>
               <div class="wrapper">
                 <h2 class="js-country-name card_tittle"></h2>
@@ -64,5 +66,7 @@
             </li>
           </template>
     </main>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script >AOS.init();</script>
 </body>
 </html>
