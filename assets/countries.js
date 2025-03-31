@@ -1,4 +1,5 @@
 // HTML Other Element
+const Elhtml = document.getElementById("html")
 const elbody = document.getElementById("body")
 const elRenderList = document.querySelector(".js-render-list");
 const ELInfoInner = document.getElementById("js-info_wrapper");
@@ -78,10 +79,12 @@ document.querySelector(".js-country-back").addEventListener("click", (evt) => {
 
 // Dark mode
 if (mode_data) {
+  Elhtml.style.colorScheme = "dark"
   elbody.classList.add("active");
   elmodeImg.src = "./assets/imgs/moon_dark.svg";
   elmodeText.textContent = "Light mode";
 } else {
+  Elhtml.style.colorScheme = "unset"
   elbody.classList.remove("active");
   elmodeImg.src = "./assets/imgs/moon_light.svg";
   elmodeText.textContent = "Dark mode";
@@ -92,10 +95,12 @@ elbtn.addEventListener("click", (evt) => {
   mode_data = !mode_data; 
 
   if (mode_data) {
+      Elhtml.style.colorScheme = "dark"
       elbody.classList.add("active");
       elmodeImg.src = "./assets/imgs/moon_dark.svg";
       elmodeText.textContent = "Light mode";
   } else {
+      Elhtml.style.colorScheme = "unset"
       elbody.classList.remove("active");
       elmodeImg.src = "./assets/imgs/moon_light.svg";
       elmodeText.textContent = "Dark mode";

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,10 +42,10 @@
         <template class="js-template">
             <li class="hero_item item" data-aos="fade-right" data-aos-duration="1200">
                 <img class="hero-item_img js-country-img" src="./assets/imgs/flag-belgium.svg" alt="Flag belgium" width="560px"> </li>
-                <li class="hero_item hero_desc item" data-aos="fade-left" data-aos-duration="900">
-                    <h3 class="hero-desc_tittle js-country-name"></h3>
+                <li class="hero_item hero_desc item" >
+                    <h3 class="hero-desc_tittle js-country-name" data-aos="fade-left" data-aos-duration="1200"></h3>
                     <div class="hero-desc_wrapper">
-                    <p class="hero-desc_text">
+                    <p class="hero-desc_text" data-aos="fade-up" data-aos-duration="900">
                         <strong >Native Name:</strong> <span class="hero-desc_span js-nativname"></span>
                         <br>
                         <strong >Population:</strong> <span class="hero-desc_span js-population"></span>
@@ -56,13 +56,13 @@
                         <br>
                         <strong >Capital:</strong> <span class="hero-desc_span js-capital"></span>
                     </p>
-                   <p class="hero-desc_text">
+                   <p class="hero-desc_text" data-aos="fade-up" data-aos-duration="900">
                         <strong >Top Level Domain:</strong> <span class="hero-desc_span js-domain"></span> <br>
                         <strong >Currencies:</strong> <span class="hero-desc_span js-currencies"></span> <br>
                         <strong >Languages:</strong> <span class="hero-desc_span js-language"></span>
                     </p>
                 </div>
-                    <div class="hero-info_wrapper" id="js-info_wrapper">
+                    <div class="hero-info_wrapper" id="js-info_wrapper" data-aos="fade-down" data-aos-duration="900">
                         <h4 class="hero-info_title">Border Countries:</h4>
                         <button class="hero-info_button js-border_first js-borders"></button>
                         <button class="hero-info_button js-border_second js-borders"></button>
