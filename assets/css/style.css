@@ -14,6 +14,7 @@
     --silver-color2:#FFFFFF;
     --silver-color3: #979797;
     --bg-img: url("/assets/imgs/icon-search-black.svg");
+    --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     --fw-low: 300;
     --fw-medium: 400;
     --fw-high: 600;
@@ -28,6 +29,7 @@
     --silver-color: #FFFFFF;
     --silver-color2: #2B3844;
     --bg-img: url("/assets/imgs/search.svg");
+    --box-shadow: 0px 4px 6px rgba(255, 255, 255, .2);
 }
 
 html {
@@ -345,15 +347,17 @@ a {
 .hero-info_button {
     padding-block: 5px;
     padding-inline: 15px;
-    max-width: 96px;
+    max-width: 123px;
     width: 100%;
     background-color: var(--bglight_color);
+    box-shadow: var(--box-shadow);
     color: var(--black-color);
     border: none;
-    border-radius: 2px;
+    border-radius: 10px;
     font-size: 14px;
     line-height: 19.1px;
     font-weight: var(--fw-low);;
+    text-transform: capitalize ;
 }
 
 .hero-info_button:hover  {
