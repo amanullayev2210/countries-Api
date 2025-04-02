@@ -8,14 +8,23 @@ const elmodeImg = document.getElementById("js-modeImg");
 const elmodeText = document.getElementById("js-mode_text")
 const elAllCountryRender = document.querySelector(".hero_items");
 const elAllTemplate = document.querySelector(".js-template").content;
-const data = JSON.parse(localStorage.getItem("country"));
 const ErrorImg = document.createElement("img");
 
 
 let mode_data = localStorage.getItem("data") === "true";
 let COUNTRIES_URL = "https://restcountries.com/v3.1/all";
 
+try {
+    let data = JSON.parse(localStorage.getItem("country"));
+
+} catch (e) {
+  window.location.pathname = "./index.html"
+}
+
+const data = JSON.parse(localStorage.getItem("country"));
+
 if (!data) window.location.pathname = "./index.html";
+
 
 const countriesObj = {
   "AFG": "Afghanistan",  "ALB": "Albania",  "DZA": "Algeria",
@@ -30,8 +39,8 @@ const countriesObj = {
   "BDI": "Burundi",      "CPV": "Cabo Verde", "KHM": "Cambodia",
   "CMR": "Cameroon",     "CAN": "Canada",    "CAF": "Central African Republic",
   "TCD": "Chad",         "CHL": "Chile",     "CHN": "China",
-  "COL": "Colombia",     "COM": "Comoros",   "COD": "Congo (Democratic Republic)",
-  "COG": "Congo (Republic)", "CRI": "Costa Rica", "CIV": "Côte d'Ivoire",
+  "COL": "Colombia",     "COM": "Comoros",   "COD": "Congo",
+  "COG": "Congo", "CRI": "Costa Rica", "CIV": "Côte d'Ivoire",
   "HRV": "Croatia",      "CUB": "Cuba",      "CYP": "Cyprus",
   "CZE": "Czechia",      "DNK": "Denmark",   "DJI": "Djibouti",
   "DMA": "Dominica",     "DOM": "Dominican Republic", "ECU": "Ecuador",
@@ -81,10 +90,9 @@ const countriesObj = {
   "USA": "United States", "URY": "Uruguay",  "UZB": "Uzbekistan",
   "VUT": "Vanuatu",      "VAT": "Vatican City", "VEN": "Venezuela",
   "VNM": "Vietnam",      "YEM": "Yemen",     "ZMB": "Zambia",
-  "ZWE": "Zimbabwe", "UNK": "Unknown"
+  "ZWE": "Zimbabwe", "GIB": "Gibraltar", "ESH": "Unknown", "UNK": "Unknown"
 };
 
-// console.log(countries);
 
 
 
@@ -187,6 +195,7 @@ async function getData(url) {
     let data = await res.json();
     localStorage.setItem("country", JSON.stringify(data[0]));
     countyrAllRender(data[0], elAllCountryRender);
+    ErrorImg.remove();
   } 
   catch (error) {
     ErrorImgFn();
@@ -195,6 +204,7 @@ async function getData(url) {
 
 // ErrorImgFn
 function ErrorImgFn () {
+  ErrorImg.classList.add(".ErrorImg");
   ErrorImg.src = "https://miro.medium.com/v2/resize:fit:1400/0*QOZm9X5er1Y0r5-t";
   elAllCountryRender.style.height = '70vh';
   ErrorImg.style.marginInline = 'auto';
@@ -206,14 +216,15 @@ function ErrorImgFn () {
 
 // countries border info
 function CountrBordersInfo() {
-  document.addEventListener("click", (event) => {
-      if (event.target.classList.contains("js-borders")) {
-          const btnText = event.target.textContent.trim();
+  document.addEventListener("click", (evt) => {
+    evt.preventDefault()
+      if (evt.target.classList.contains("js-borders")) {
+          const btnText = evt.target.textContent.trim();
           if (btnText === "Unknown") {
-            event.target.remove();
+            evt.target.remove();
           } else {
             let Search_link = COUNTRIES_URL.replace("all", `name/${btnText}`);
-            getData(Search_link);
+            getData(Search_link);            
           }
       }
   });
