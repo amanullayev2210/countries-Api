@@ -90,7 +90,7 @@ const countriesObj = {
   "USA": "United States", "URY": "Uruguay",  "UZB": "Uzbekistan",
   "VUT": "Vanuatu",      "VAT": "Vatican City", "VEN": "Venezuela",
   "VNM": "Vietnam",      "YEM": "Yemen",     "ZMB": "Zambia",
-  "ZWE": "Zimbabwe", "GIB": "Gibraltar", "ESH": "Unknown", "UNK": "Unknown"
+  "ZWE": "Zimbabwe", "GIB": "Gibraltar", "ESH": "Unknown", "GUF": "French Guiana", "UNK": "Unknown"
 };
 
 
@@ -222,7 +222,9 @@ function CountrBordersInfo() {
           const btnText = evt.target.textContent.trim();
           if (btnText === "Unknown") {
             evt.target.remove();
-          } else {
+          } else if (btnText === "")  {
+            evt.target.remove();
+          }else {
             let Search_link = COUNTRIES_URL.replace("all", `name/${btnText}`);
             getData(Search_link);            
           }
