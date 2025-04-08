@@ -1,17 +1,17 @@
 // HTML Form
-const elForm = document.querySelector(".js-form")
-const elSearch = document.querySelector(".js-search-inp")
+const elForm = document.querySelector(".js-form");
+const elSearch = document.querySelector(".js-search-inp");
 const elSelect = document.querySelector(".js-country-select");
 
 // HTML Other Element
-const Elbody = document.getElementById("body")
+const Elbody = document.getElementById("body");
 const elRenderList = document.querySelector(".js-render-list");
 const elTemplate = document.querySelector(".js-template").content;
 const Elbtn = document.getElementById("js-btn");  
 const ElmodeImg = document.getElementById("js-modeImg");
 const ElmodeText = document.getElementById("js-mode_text")
 const ElanimationLoading = document.getElementById("js-loading");
-const Elhtml = document.getElementById("html")
+const Elhtml = document.getElementById("html");
 
 let COUNTRIES_URL = "https://restcountries.com/v3.1/all";
 let mode_data = localStorage.getItem("data") === "true";
@@ -112,7 +112,7 @@ Elbtn.addEventListener("click", (evt) => {
       ElmodeText.textContent = "Dark mode";
   }
 
-  localStorage.setItem("data", mode_data); 
+  localStorage.setItem("data", mode_data);
 });
 
 
