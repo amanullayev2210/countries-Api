@@ -288,6 +288,7 @@ a {
 }
 
 .hero-item_img {
+    display: block;
     max-width: 100%;
 }
 
